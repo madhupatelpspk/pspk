@@ -12,9 +12,9 @@ Module(
     async (message: MessageType) => {
         const cmds = commands.filter((cmd) => cmd.name && !cmd.dontAddCommandList && !cmd.name.toString().includes("undefined")).length;
         let menuInfo = `\`\`\`
-╭─── ${process.env.BOT_INFO ? process.env.BOT_INFO.split(";")[1] : `χѕтяσ м∂`} ────
-│ User: @${message.sender}
-│ Owner: ${process.env.BOT_INFO!.split(";")[0] ?? `αѕтяσχ11`}		
+╭─── ${process.env.BOT_INFO?.split(";")[0] ?? `χѕтяσ м∂`} ────
+│ User: ${message.pushName ?? `Unknown`}
+│ Owner: ${process.env.BOT_INFO?.split(";")[0] ?? `αѕтяσχ11`}		
 │ Plugins: ${cmds}
 │ Mode: ${message.mode ? "Private" : "Public"}
 │ Uptime: ${runtime(process.uptime())}
@@ -23,7 +23,7 @@ Module(
 │ Day: ${new Date().toLocaleDateString("en-US", { weekday: "long" })}
 │ Date: ${new Date().toLocaleDateString("en-US")}
 │ Time: ${new Date().toLocaleTimeString("en-US", { timeZone: process.env.TZ })}
-│ Node V: ${process.version}
+│ Node: ${process.version}
 ╰─────────────\`\`\`\n`;
 
         const commandsByType = commands
@@ -50,7 +50,7 @@ Module(
             });
             menuInfo += `╰────────────\n`;
         });
-        return await message.send(menuInfo.trim(), { mentions: [message.sender] });
+        return await message.send(menuInfo.trim());
     }
 );
 
