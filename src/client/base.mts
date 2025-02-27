@@ -56,7 +56,10 @@ export const client = async (database: string = "database.db"): Promise<WASocket
             const { connection, lastDisconnect } = events["connection.update"];
             if (connection === "connecting") console.log("connecting...");
             else if (connection === "close") (lastDisconnect?.error as Boom)?.output?.statusCode === DisconnectReason.loggedOut ? Xprocess("stop") : client(database);
-            else if (connection === "open") console.log(`Connected!`);
+            else if (connection === "open") {
+                await conn.sendMessage(conn?.user?.id!, { text: "Bot is online now!" });
+                console.log(`Connected!`);
+            }
         }
 
         if (events["creds.update"]) await saveCreds();
