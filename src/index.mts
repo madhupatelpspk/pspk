@@ -4,4 +4,4 @@ export * from "./types.mjs";
 export * from "./files.mjs";
 export * from "./functions.mjs";
 export * from "./scraper.mjs";
-export * from "./main.mjs";
+export * from "./worker.mjs";

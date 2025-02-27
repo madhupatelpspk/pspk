@@ -60,7 +60,7 @@ Module(
         type: "chats",
     },
     async (message: MessageType) => {
-        await message.chatModify({ clear: true }, message.jid);
+        await message.chatModify({ delete: true, lastMessages: [{ key: message.key, messageTimestamp: message.messageTimestamp }] }, message.jid);
         return message.send("Cleared.");
     }
 );

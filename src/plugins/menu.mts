@@ -12,7 +12,7 @@ Module(
     async (message: MessageType) => {
         const cmds = commands.filter((cmd) => cmd.name && !cmd.dontAddCommandList && !cmd.name.toString().includes("undefined")).length;
         let menuInfo = `\`\`\`
-╭─── ${process.env?.BOT_INFO ? process.env.BOT_INFO?.split?.(";")[1] : `χѕтяσ м∂`} ────
+╭─── ${process.env.BOT_INFO ? process.env.BOT_INFO.split(";")[1] : `χѕтяσ м∂`} ────
 │ User: @${message.sender}
 │ Owner: ${process.env.BOT_INFO!.split(";")[0] ?? `αѕтяσχ11`}		
 │ Plugins: ${cmds}

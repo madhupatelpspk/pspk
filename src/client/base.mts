@@ -150,9 +150,14 @@ export const client = async (database: string = "database.db"): Promise<WASocket
     });
 
     setInterval(async () => {
-        const groupsMetadata = await conn.groupFetchAllParticipating();
-        for (const [id, metadata] of Object.entries(groupsMetadata)) {
-            await saveGroupMetadata(id, metadata);
+        try {
+            if (!conn.authState?.creds?.registered) return;
+            const groups = await conn.groupFetchAllParticipating();
+            for (const [id, metadata] of Object.entries(groups)) {
+                await saveGroupMetadata(id, metadata);
+            }
+        } catch (error) {
+            throw new Boom(error.message as Error);
         }
     }, 300 * 1000);
 
