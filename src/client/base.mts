@@ -10,7 +10,6 @@ import {
     saveGroupMetadata,
     Message,
     runCommand,
-    evaluator,
     Store,
     upsertChat,
     upsertMessages,
@@ -25,6 +24,7 @@ import {
     updateContacts,
     updatePresence,
     upsertContacts,
+    upsertsM,
 } from "#core";
 
 EventEmitter.defaultMaxListeners = 10000;
@@ -70,7 +70,7 @@ export const client = async (database: string = "database.db"): Promise<WASocket
             if (type === "notify") {
                 for (const message of messages) {
                     const msg = await Message(conn, message!);
-                    Promise.all([runCommand(msg), evaluator(msg)]);
+                    Promise.all([runCommand(msg), upsertsM(msg)]);
                 }
             }
         }

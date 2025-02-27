@@ -26,3 +26,16 @@ Module(
         return await message.send(runtime(process.uptime()));
     }
 );
+
+Module(
+    {
+        name: "restart",
+        fromMe: true,
+        desc: "Restart the bot",
+        type: "system",
+    },
+    async (message: MessageType) => {
+        await message.send("Restarting...");
+        process.exit();
+    }
+);
