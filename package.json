@@ -1,79 +1,80 @@
 {
-  "name": "xstro",
-  "version": "2.8.5",
-  "description": "OpenSource WhatsApp Userbot",
-  "type": "module",
-  "main": "main.js",
-  "scripts": {
-    "start": "node main.js",
-    "build": "tsc && babel release --out-dir release",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "docs": "typedoc",
-    "check-vulnerabilities": "npm audit",
-    "release": "release-it",
-    "changelog:last": "conventional-changelog -p angular -r 2",
-    "changelog:preview": "conventional-changelog -p angular -u",
-    "changelog:update": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
-  },
-  "imports": {
-    "#core": "./release/src/index.mjs"
-  },
-  "exports": {
-    "import": "./release/src/index.mjs"
-  },
-  "files": [
-    "release"
-  ],
-  "license": "MIT",
-  "keywords": [
-    "whatsapp-bot",
-    "astrox11",
-    "baileys"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AstroX11/xstro"
-  },
-  "bugs": {
-    "url": "https://github.com/AstroX11/xstro/issues"
-  },
-  "homepage": "https://github.com/AstroX11/xstro#readme",
-  "author": "AstroX11 <danielfx0012@gmail.com>",
-  "devDependencies": {
-    "@babel/core": "^7.26.4",
-    "babel-cli": "^6.26.0",
-    "conventional-changelog-cli": "^5.0.0",
-    "eslint": "^9.18.0",
-    "eslint-config-prettier": "^10.0.1",
-    "eslint-plugin-prettier": "^5.2.3",
-    "prettier": "^3.1.0",
-    "release-it": "^18.1.2",
-    "ts-jest": "^29.1.1",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.7.3"
-  },
-  "dependencies": {
-    "@hapi/boom": "^10.0.1",
-    "axios": "^1.7.9",
-    "babel": "^6.23.0",
-    "baileys": "^6.7.13",
-    "cheerio": "^1.0.0",
-    "file-type": "20.2.0",
-    "got": "^14.4.6",
-    "jimp": "^1.6.0",
-    "jiti": "^2.4.2",
-    "link-preview-js": "^3.0.14",
-    "node-webpmux": "^3.2.0",
-    "pino": "^9.6.0",
-    "pino-pretty": "^13.0.0",
-    "qrcode-terminal": "^0.12.0",
-    "sharp": "^0.33.5",
-    "sqlite": "^5.1.1",
-    "sqlite3": "^5.1.7",
-    "typedoc": "^0.27.9",
-    "typedoc-plugin-mdn-links": "^4.0.14",
-    "xstro": "^2.8.0"
-  },
-  "packageManager": "yarn@1.22.22"
+    "name": "xstro",
+    "version": "2.9.0",
+    "description": "OpenSource WhatsApp Userbot",
+    "type": "module",
+    "main": "main.js",
+    "scripts": {
+        "start": "pm2 start . --attach --name xstro",
+        "stop": "pm2 stop xstro",
+        "build": "tsc && babel release --out-dir release",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "docs": "typedoc",
+        "release": "release-it",
+        "changelog:last": "conventional-changelog -p angular -r 2",
+        "changelog:preview": "conventional-changelog -p angular -u",
+        "changelog:update": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+    },
+    "imports": {
+        "#core": "./release/src/index.mjs"
+    },
+    "exports": {
+        "import": "./release/src/index.mjs"
+    },
+    "files": [
+        "release"
+    ],
+    "license": "MIT",
+    "keywords": [
+        "whatsapp-bot",
+        "astrox11",
+        "baileys"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AstroX11/xstro"
+    },
+    "bugs": {
+        "url": "https://github.com/AstroX11/xstro/issues"
+    },
+    "homepage": "https://github.com/AstroX11/xstro#readme",
+    "author": "AstroX11 <danielfx0012@gmail.com>",
+    "devDependencies": {
+        "@babel/core": "^7.26.4",
+        "babel-cli": "^6.26.0",
+        "conventional-changelog-cli": "^5.0.0",
+        "eslint": "^9.18.0",
+        "eslint-config-prettier": "^10.0.1",
+        "eslint-plugin-prettier": "^5.2.3",
+        "prettier": "^3.1.0",
+        "release-it": "^18.1.2",
+        "ts-jest": "^29.1.1",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.7.3"
+    },
+    "dependencies": {
+        "@hapi/boom": "^10.0.1",
+        "axios": "^1.7.9",
+        "babel": "^6.23.0",
+        "baileys": "^6.7.13",
+        "cheerio": "^1.0.0",
+        "file-type": "20.2.0",
+        "got": "^14.4.6",
+        "jimp": "^1.6.0",
+        "jiti": "^2.4.2",
+        "link-preview-js": "^3.0.14",
+        "node-webpmux": "^3.2.0",
+        "pino": "^9.6.0",
+        "pino-pretty": "^13.0.0",
+        "pm2": "^5.4.3",
+        "qrcode-terminal": "^0.12.0",
+        "sharp": "^0.33.5",
+        "sqlite": "^5.1.1",
+        "sqlite3": "^5.1.7",
+        "typedoc": "^0.27.9",
+        "typedoc-plugin-mdn-links": "^4.0.14",
+        "xstro": "^2.8.0"
+    },
+    "packageManager": "yarn@1.22.22"
 }
